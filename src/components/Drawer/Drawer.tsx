@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import css from './Drawer.module.scss';
 
 const Drawer: FC = () => {

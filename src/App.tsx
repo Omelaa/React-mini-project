@@ -1,7 +1,8 @@
 import {FC} from "react";
-
 import 'macro-css';
+
 import css from './app.module.scss';
+
 import {Drawer, Header, Plates} from './components';
 
 const App: FC = () => {

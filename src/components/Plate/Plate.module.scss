@@ -1,0 +1,100 @@
+.cards {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid #f3f3f3;
+    border-radius: 10px;
+    max-width: 295px;
+    padding: 15px 15px 15px 15px;
+    background: #ffffff;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__img {
+    height: 263px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 35px;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h5 {
+    font-size: 14px;
+  }
+
+  span {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #bdbdbd;
+    font-weight: 500;
+  }
+
+  b {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+
+  &__button, &__like {
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    transition: 0.5s opacity, background-position;
+    position: relative;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus::after,
+    &:active::after {
+      content: '';
+      background-image: url("../../../public/img/accept.svg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      right: -5px;
+      bottom: 0;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__like {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+
+
+    &:focus::after,
+    &:active::after {
+      content: '';
+      background-image: url("../../../public/img/like.svg");
+    }
+  }
+
+}

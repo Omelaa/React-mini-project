@@ -1,21 +1,30 @@
-import { FC } from "react";
-import css from "../../app.module.scss";
+import {FC} from "react";
 
-const Plate: FC  = () => {
+import css from "./Plate.module.scss";
+
+import {IPlate} from "../../Interfaces";
+
+interface IProps {
+    plate: IPlate
+}
+
+const Plate: FC<IProps> = ({plate: {title, imageUrl, price}}) => {
     return (
         <li className={css.cards__item}>
-            <img width={130} height={110} src="/img/sneakers/1.jpg" alt="sneaker"/>
-            <h5>
-                Мужские Кроссовки Nike Blazer Mid Suede
-            </h5>
-            <div className={"d-flex justify-between align-center"}>
-                <div className={"d-flex flex-column"}>
-                    <span>Цена:</span>
-                    <b>12 999 руб.</b>
+            <img className={css.cards__img} src={imageUrl} alt="vinyl"/>
+            <div className={css.cards__wrapper}>
+                <div className={css.cards__title}>
+                    {title}
                 </div>
-                <button className={css.cards__button}>
-                    <img src="/img/plus.svg" alt="add to cart"/>
-                </button>
+                <div className={css.cards__info}>
+                    <div className={"d-flex flex-column"}>
+                        <span>Вартість вінілу:</span>
+                        <b>{price} грн.</b>
+                    </div>
+                    <button className={css.cards__button}>
+                        <img src="/img/plus.svg" alt="add to cart"/>
+                    </button>
+                </div>
             </div>
         </li>
     );

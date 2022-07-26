@@ -1,6 +1,6 @@
 
 
-export interface PlateInterface {
+export interface IPlate {
     id: string;
     imageUrl: string;
     title: string;

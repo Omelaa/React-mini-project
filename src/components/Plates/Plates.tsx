@@ -1,25 +1,23 @@
-import {FC} from "react";
-import css from "../../app.module.scss";
+import {FC, useEffect} from "react";
+
+import css from "./Plates.module.scss";
+
+import {plateActions} from "../../redux";
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+import {Plate} from "../Plate/Plate";
 
 
 const Plates: FC = () => {
+    const {plates} = useAppSelector(state => state.plates);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(plateActions.getAll())
+    }, [dispatch]);
+
     return (
         <ul className={css.cards}>
-            <li className={css.cards__item}>
-                <img width={130} height={110} src="/img/sneakers/1.jpg" alt="sneaker"/>
-                <h5>
-                    Мужские Кроссовки Nike Blazer Mid Suede
-                </h5>
-                <div className={"d-flex justify-between align-center"}>
-                    <div className={"d-flex flex-column"}>
-                        <span>Цена:</span>
-                        <b>12 999 руб.</b>
-                    </div>
-                    <button className={css.cards__button}>
-                        <img src="/img/plus.svg" alt="add to cart"/>
-                    </button>
-                </div>
-            </li>
+            {plates.map(plate => <Plate key={plate.id} plate={plate}/>)}
         </ul>
     );
 };
